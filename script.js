@@ -6,13 +6,13 @@ function computerPlay() {
   value = Math.floor(Math.random() * 3)
 
   // from the three possible values, we map them to
-  // Rock, Paper, and Scissors respectively
+  // rock, paper, and scissors respectively
   if (value === 0) {
-    return 'Rock'
+    return 'rock'
   } else if (value === 1) {
-    return 'Paper'
+    return 'paper'
   } else if (value === 2) {
-    return 'Scissors'
+    return 'scissors'
   }
 }
 
@@ -104,7 +104,14 @@ function game() {
   }
 }
 
-game();
+const buttons = document.querySelectorAll('button');
+
+// run playRound whenever we click on any of the buttons
+buttons.forEach((button) => {
+  button.addEventListener('click', function() {
+    playRound(button.id, computerPlay());
+  });
+});
   
   
   
