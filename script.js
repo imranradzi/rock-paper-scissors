@@ -71,6 +71,7 @@ function playRound(playerSelection, computerSelection) {
 
 const buttons = document.querySelectorAll('button');
 const score = document.querySelector('#score');
+const body = document.querySelector('body');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -92,20 +93,16 @@ buttons.forEach((button) => {
     score.textContent = `The current score is Player:${playerScore} | Computer: 
                             ${computerScore}`;
 
+    // when one player has 5 points, reports the overall winner
+    if (playerScore === 5) {
+      body.textContent = `Final score, Player:${playerScore} | Computer: 
+                            ${computerScore}, you win!`;
+    } else if (computerScore === 5) {
+      body.textContent = `Final score, Player:${playerScore} | Computer: 
+                            ${computerScore}, you lose!`;;
+    }
   });
 });
-
-
-  /* resultsFinal = document.querySelector('#results-final');
-
-  // when one player has 5 points, reports the overall winner
-  while (playerScore < 5 || computerSCore < 5) {
-    if (playerScore === 5) {
-      resultsFinal.textContent ='You win!';
-    } else {
-      resultsFinal.textContent = 'You lose!';
-    }
-  } */
   
   
   
